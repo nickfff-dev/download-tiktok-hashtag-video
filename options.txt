@@ -1,0 +1,58 @@
+ --version            Show version number                             [boolean]
+  --session            Set session cookie value. Sometimes session can be
+                       helpfu   l when scraping data from any method  [default: ""]
+  --session-file       Set path to the file with list of active sessions. One
+                       session per line!                           [default: ""]
+  --timeout            Set timeout between requests. Timeout is in Milliseconds:
+                       1000 mls = 1 s                               [default: 0]
+  --number, -n         Number of posts to scrape. If you will set 0 then all
+                       posts will be scraped                        [default: 0]
+  --since              Scrape no posts published before this date (timestamp).
+                       If set to 0 the filter is deactived          [default: 0]
+  --proxy, -p          Set single proxy                            [default: ""]
+  --proxy-file         Use proxies from a file. Scraper will use random proxies
+                       from the file per each request. 1 line 1 proxy.
+                                                                      [default: ""]
+  --download, -d       Download video posts to the folder with the name input
+                       [id]                           [boolean] [default: false]
+  --asyncDownload, -a  Number of concurrent downloads               [default: 5]
+  --hd                 Download video in HD. Video size will be x5-x10 times
+                       larger and this will affect scraper execution speed. This
+                       option only works in combination with -w flag
+                                                      [boolean] [default: false]
+  --zip, -z            ZIP all downloaded video posts [boolean] [default: false]
+  --filepath           File path to save all output files.
+      [default: "/Users/karl.wint/Documents/projects/javascript/tiktok-scraper"]
+  --filetype, -t       Type of the output file where post information will be
+                       saved. 'all' - save info   rmation about all posts to the`
+                       'json' and 'csv'
+                               [choices: "csv", "json", "all", ""] [default: ""]
+  --filename, -f       Set custom filename for the output files    [default: ""]
+  --noWaterMark, -w    Download video without the watermark. NOTE: With the
+                       recent update you only need to use this option if you are
+                       scraping Hashtag Feed. User/Trend/Music feeds will have
+                       this url by default            [boolean] [default: false]
+  --store, -s          Scraper will save the progress in the OS TMP or Custom
+                       folder and in the future usage will only download new
+                       videos avoiding duplicates     [boolean] [default: false]
+  --historypath        Set custom path where history file/files will be stored
+                   [default: "/var/folders/d5/fyh1_f2926q7c65g7skc0qh80000gn/T"]
+  --remove, -r         Delete the history record by entering "TYPE:INPUT" or
+                       "all" to clean all the history. For example: user:bob
+                                                                   [default: ""]
+  --webHookUrl         Set webhook url to receive scraper result as HTTP
+                       requests. For example to your own API       [default: ""]
+  --method             Receive data to your webhook url as POST or GET request
+                                      [choices: "GET", "POST"] [default: "POST"]
+  --help               Show help                                       [boolean]
+
+Examples:
+  tiktok-scraper user USERNAME -d -n 100 --session sid_tt=dae32131231
+  tiktok-scraper trend -d -n 100 --session sid_tt=dae32131231
+  tiktok-scraper hashtag HASHTAG_NAME -d -n 100 --session sid_tt=dae32131231
+  tiktok-scraper music MUSIC_ID -d -n 50 --session sid_tt=dae32131231
+  tiktok-scraper vi   deo https://www.tiktok.com/@tiktok/video/6807491984882765062 -d
+  tiktok-scraper history
+  tiktok-scraper history -r user:bob
+  tiktok-scraper history -r all
+  tiktok-scraper from-file BATCH_FILE ASYNC_TASKS -d
