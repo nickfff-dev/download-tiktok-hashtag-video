@@ -1,5 +1,9 @@
 const TikTokScraper = require('tiktok-scraper');
-const prompt = require('prompt-sync')( {sigint: true} );
+const prompt = require('prompt-sync')({ sigint: true });
+const fs = require('fs');
+
+
+
 
 // scrape video by hashtage from 48 hours ago
 
@@ -28,6 +32,7 @@ let vid_count = prompt('Enter number of videos to scrape: ');
         noWaterMark: false, 
         download: true,
         filepath: './save_vid',
+        filename: '1',
         headers: {
           'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4190.171 Safari/537.36',
           referer: 'https://www.tiktok.com/',
@@ -41,4 +46,7 @@ let vid_count = prompt('Enter number of videos to scrape: ');
 })();
 
 
+
+//  sort by filename and rename each file from the folder save_vid/# + hashTag
+const path = './save_vid/' + "#" + hashTag;
 
